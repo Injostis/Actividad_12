@@ -1,32 +1,52 @@
-<script setup>
-import HelloWorld from "./components/HelloWorld.vue";
-import TheWelcome from "./components/TheWelcome.vue";
-</script>
-
 <template>
-  <div id="app">
-    <h1>Chuck Norris Facts</h1>
-    <ul>
-      <li v-for="(fact, index) in chuck" :key="index">
-        {{ fact.value }}
-      </li>
-    </ul>
+  <div class="container">
+    <div class="row">
+      <chuck-card
+        v-for="(fact, index) in chuck"
+        :key="index"
+        :icon-url="fact.icon_url"
+        :value="fact.value"
+      />
+    </div>
   </div>
 </template>
 
 <script>
+import ChuckCard from "./components/ChuckCard.vue";
+
 export default {
+  components: {
+    ChuckCard,
+  },
   data() {
     return {
       chuck: [
-        { value: "Chuck Norris can skydive into outer space." },
-        { value: "The chief export of Chuck Norris is pain." },
         {
+          icon_url:
+            "https://hips.hearstapps.com/hmg-prod/images/gettyimages-150327735-copy.jpg",
+          value: "Chuck Norris can skydive into outer space.",
+        },
+        {
+          icon_url:
+            "https://hips.hearstapps.com/hmg-prod/images/gettyimages-150327735-copy.jpg",
+          value: "The chief export of Chuck Norris is pain.",
+        },
+        {
+          icon_url:
+            "https://hips.hearstapps.com/hmg-prod/images/gettyimages-150327735-copy.jpg",
           value:
             "Chuck Norris doesn't read books. He stares them down until he gets the information he wants.",
         },
-        { value: "Time waits for no man. Unless that man is Chuck Norris." },
-        { value: "If you spell Chuck Norris in Scrabble, you win. Forever." },
+        {
+          icon_url:
+            "https://hips.hearstapps.com/hmg-prod/images/gettyimages-150327735-copy.jpg",
+          value: "Time waits for no man. Unless that man is Chuck Norris.",
+        },
+        {
+          icon_url:
+            "https://hips.hearstapps.com/hmg-prod/images/gettyimages-150327735-copy.jpg",
+          value: "If you spell Chuck Norris in Scrabble, you win. Forever.",
+        },
       ],
     };
   },
